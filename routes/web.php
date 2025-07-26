@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\BukuController;
 
 Route::get('/', function () {
     return view('home');
@@ -31,10 +33,14 @@ Route::get('/about', function () {
     return view('about');
 });
 
+Route::get('/about', [AboutController::class, 'index']);
+
 // Route untuk Contact
 Route::get('/contact', function () {
     return view('contact');
 });
+
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 // Route untuk Gallery
 Route::get('/gallery', function () {
@@ -47,4 +53,13 @@ use App\Http\Controllers\ProductController;
 Route::resource('/products', ProductController::class);
 
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('products.show');
+
+Route::prefix('api')->group(function () {
+    Route::get('/buku', [BukuController::class, 'index']);
+    Route::get('/buku/{id}', [BukuController::class, 'show']);
+    Route::post('/buku', [BukuController::class, 'store']);
+    Route::put('/buku/{id}', [BukuController::class, 'update']);
+    Route::delete('/buku/{id}', [BukuController::class, 'destroy']);
+});
+
 

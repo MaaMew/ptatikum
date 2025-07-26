@@ -23,10 +23,11 @@
                     @endforeach
                 </select>
             </div>
+<!-- Ganti tombol lama dengan yang baru -->
+<button type="submit" style="display: inline-block; padding: 12px 24px; background-color: #4CAF50; color: white; border-radius: 5px; text-align: center; font-size: 16px; cursor: pointer;">
+    Simpan Produk
+</button>
 
-            <div class="mb-6 text-center">
-                <button type="submit" class="px-6 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-lg shadow-lg">Simpan Produk</button>
-            </div>
         </form>
     </div>
 @endsection
